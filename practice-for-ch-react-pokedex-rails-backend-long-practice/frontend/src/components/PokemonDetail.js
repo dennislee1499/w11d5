@@ -5,6 +5,15 @@ import PokemonItems from './PokemonItems';
 import EditPokemonForm from './EditPokemonForm';
 import ItemForm from './ItemForm';
 
+// export const getOnePokemon = () => async dispatch => {
+//   const response = await fetch (`/api/pokemon/:id`)
+
+//   if (response.ok) {
+//     const list = await response.json();
+//     dispatch(load(list));
+//   }
+// }
+
 const PokemonDetail = () => {
   const { pokemonId } = useParams();
   const pokemon = useSelector(state => state.pokemon[pokemonId]);
@@ -15,6 +24,7 @@ const PokemonDetail = () => {
     setShowEditPokeForm(false);
     setEditItemId(null);
   }, [pokemonId]);
+
 
   if (!pokemon || !pokemon.moves) {
     return null;
